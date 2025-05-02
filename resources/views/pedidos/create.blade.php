@@ -64,7 +64,7 @@
   setInterval(() => {
     fetch(`/motorizado/1/ubicacion`, {
       method: 'POST',
-      credentials: 'same-origin',      // envía cookie de sesión
+      credentials: 'same-origin',      
       headers: {
         'X-CSRF-TOKEN': csrfToken,
         'Content-Type': 'application/json',

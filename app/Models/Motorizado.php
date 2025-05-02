@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;  // <- Importa el trait
+use Illuminate\Database\Eloquent\Factories\HasFactory;  
 
 
 class Motorizado extends Model
 {
-    use HasFactory;                                     // <- Úsalo aquí
+    use HasFactory;                                     
 
     protected $fillable = [
         'nombre',

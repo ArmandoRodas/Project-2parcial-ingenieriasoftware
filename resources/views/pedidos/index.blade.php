@@ -20,6 +20,7 @@
         <th>Motorizado</th>
         <th>Estado</th>
         <th>Fecha</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -31,6 +32,30 @@
           <td>{{ $p->motorizado->nombre }}</td>
           <td>{{ $p->estado }}</td>
           <td>{{ $p->created_at->format('d/m/Y H:i') }}</td>
+          <td>
+            <div class="buttons">
+              @if($p->estado !== 'entregado')
+                <form action="{{ route('pedidos.entregar', $p) }}"
+                      method="POST"
+                      style="display:inline">
+                  @csrf
+                  <button type="submit" class="button is-small is-success">
+                    Entregado
+                  </button>
+                </form>
+              @endif
+
+              <form action="{{ route('pedidos.destroy', $p) }}"
+                    method="POST"
+                    style="display:inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="button is-small is-danger">
+                  Ocultar
+                </button>
+              </form>
+            </div>
+          </td>
         </tr>
       @endforeach
     </tbody>
